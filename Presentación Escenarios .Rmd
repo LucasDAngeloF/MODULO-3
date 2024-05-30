@@ -1,0 +1,58 @@
+---
+title: "Método de los escenarios"
+author: "PH Grupo 11"
+date: "2024-05-22"
+output: powerpoint_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Historia
+
+El término "escenario" proviene del arte dramático y se utilizó en planificación por primera vez en la década de 1950 por Herman Kahn de la Rand Corporation para estudios militares y estratégicos.\
+
+## Concepto
+
+Los escenarios son descripciones exploratorias de futuros posibles. Son secuencias hipotéticas de eventos que ayudan a enfocar la atención en procesos causales y posibles interrupciones.
+
+## Concepto
+
+Según Eduardo Balbi, un escenario es un conjunto de circunstancias que pueden ocurrir en un determinado ámbito, operando con actores e intereses que se deben analizar coherentemente. Sirven para entender cómo las decisiones presentes afectan el futuro y no ponderan probabilidades, sino que consideran posibilidades.
+
+## Características
+
+-   **Narraciones dinámicas**: Los escenarios son descripciones vivas de situaciones futuras posibles, basadas en contextos y estimaciones estadísticas.
+
+-   **Carácter múltiple**: Se generan varias posibilidades de una situación para contrastar y ampliar la visión futura.
+
+## Características
+
+-   **Progresión presente-futuro**: Describen no solo el futuro, sino también el camino desde el presente, conectando eventos interrelacionados.
+
+-   Funciones en la Planificación, considerar múltiples perspectivas, preparar estrategias para diversas contingencias, etc.
+
+## Aplicación
+
+
+```{r}
+library(fpp)
+library(ggplot2)
+beer2 <- window(ausbeer, start=1992)
+fit.beer <- tslm(beer2 ~ trend + season)
+fcast <- forecast(fit.beer)
+
+```
+
+
+```{r}
+autoplot(beer2, xlab="Año", ylab="Millones de Galones") + ggtitle("Despacho de Cerveza en Australia")
+```
+
+
+## Aplicación
+
+```{r}
+autoplot(fcast, xlab="Año", ylab="Millones de Galones")
+```
